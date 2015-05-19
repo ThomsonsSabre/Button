@@ -4,7 +4,8 @@
 
 <h2>Tell me you're ok?</h2>
 
-@using (Html.BeginForm("action","HomeController"))
+@using (Html.BeginForm("okGo","HomeController"))
 {
-    <input type="submit" name="btOkGo" class="okGo" value="I'm fine" />
+    <input type="submit" name="btOkGo" value="I'm fine" onclick="okGo" />
+    @*<label id="lbResponse" />*@
 }
