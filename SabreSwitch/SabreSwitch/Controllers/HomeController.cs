@@ -17,7 +17,7 @@ namespace SabreSwitch.Controllers
         }
 
         [HttpPost]
-        public ActionResult okGo(string button)
+        public ActionResult okGo(string btOkGo)
         {
             return View("okGoResponse");            
         }
