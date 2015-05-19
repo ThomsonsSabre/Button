@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tell me you're ok?</h2>
+
+@using (Html.BeginForm("action","HomeController"))
+{
+    <input type="submit" name="btOkGo" class="okGo" value="I'm fine" />
+}
