@@ -16,7 +16,7 @@ namespace SabreSwitch.Controllers
             return View();
         }
 
-        [AcceptVerbs(HttpVerbs.Post)]
+        [HttpPost]
         public ActionResult okGo(string button)
         {
             return View("okGoResponse");            
