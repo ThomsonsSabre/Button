@@ -10,6 +10,7 @@ namespace SabreSwitch.Tests
         public void TestMethod1()
         {
             Assert.IsTrue(true);
+            Assert.IsFalse(false);
         }
     }
 }
