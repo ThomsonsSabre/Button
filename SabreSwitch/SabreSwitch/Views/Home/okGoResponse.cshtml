@@ -15,7 +15,7 @@
     <script src="~/Scripts/jquery.countdown.js"></script>
 
     <script>
-        var time = 10;
+        var time = 1000;
         countDown();
 
         function countDown() {
@@ -39,10 +39,14 @@
         }
     </script>
 }
-<div>
-    Nice
+<div class="MainPageElement">
+    <img src="~/Content/Images/jesus.jpg" class="logo" />
+    <span class="message">
+        Nice!
+    </span>
 </div>
 <div>
-    <div id="timer" ></div>
+    <div id="timer" class="MainPageElement"></div>
 </div>
-<button type="button" id="reset" onclick="reset()">I'm Still Fine</button>
+<button type="button" id="reset" class="button" onclick="reset()">I'm Still Fine</button>
+

@@ -60,7 +60,37 @@ textarea {
     display: none;
 }
 
-div.HomePageLogo {
+/* Home Page Styles
+-----------------------------------------------------------*/
+
+.MainPageElement {
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+
+.logo {
+    margin-top: 100px;
     width:200px;
     height:200px;
+}
+
+.button {
+  position: relative;
+  width: 75%;
+  max-width: 500px;
+  height: 55px;
+  font-size: xx-large;
+  font-family: monospace;
+}
+
+.button:hover{
+    border-color:goldenrod;
+}
+
+.message{
+    font-size:xx-large;
+    font-weight:bold;
+    color:darkred;
+    font-family:'Comic Sans MS';
 }
