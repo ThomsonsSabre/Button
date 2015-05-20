@@ -27,15 +27,18 @@ function showRemaining() {
 
         return;
     }
- }
 
-var days = Math.floor(distance/_day);
-var hours = Math.floor((distance % _day)/hour);
-var mins = Math.floor((distace % _hour) / _min);
-var secs = Math.floor((distance % _min) / _sec);
+    var days = Math.floor(distance/_day);
+    var hours = Math.floor((distance % _day)/hour);
+    var mins = Math.floor((distace % _hour) / _min);
+    var secs = Math.floor((distance % _min) / _sec);
 
-document.getElementById();
+    document.getElementById('countdown').innerHTML = hours + 'hrs ';
+    document.getElementById('countdown').innerHTML += mins + 'mins ';
+    document.getElementById('countdown').innerHTML += secs + 'secs';
+}
 
+timer = setInterval(showRemaining, 100);
 &lt;/script&gt;
 
 <html>
@@ -48,7 +51,7 @@ document.getElementById();
         Nice
     </div>
     <div>
-        Add countdown timer here to bounce back to homepage.
+        <label id="countdown" />
     </div>
 </body>
 </html>
