@@ -15,28 +15,34 @@
     <script src="~/Scripts/jquery.countdown.js"></script>
 
     <script>
-        var now = new Date();
-        console.log("now: " + now);
-        var deadLine = now;
-        console.log("now: " + now + "\ndeadline: " + deadLine);
-        var mins = now.getMinutes();
-        console.log("now: " + now + "\ndeadline: " + deadLine + "\nmins: " + mins);
-        mins = mins + 1;
-        console.log("now: " + now + "\ndeadline: " + deadLine + "\nmins: " + mins);
-        deadLine.setMinutes(mins);
-        console.log("now: " + now + "\ndeadline: " + deadLine + "\nmins: " + mins);
-        $('#defaultCountdown').countdown({ until: new Date(2016, 1, 1), format: 'HMS' });
-        $('#reset').click(function () {
-            now = new Date();
-            mins = now.getMinutes() + 1;
-            deadLine.setMinutes(mins, now.getSeconds, now.getMilliseconds);
-        })
+        var time = 10;
+        countDown();
+
+        function countDown() {
+            document.getElementById("timer").innerHTML = time;
+            if (time >= 0) {
+                window.setTimeout("countDown()", 1000);
+            } else {
+                document.getElementById("timer").innerHTML = "Are you ok?...";
+                
+                window.setTimeout(function () {
+                    var url = '@Url.Action("/")';
+                    window.location.href = url;
+                }, 1000);
+            }
+
+            time -= 1;
+        }
+
+        function reset() {
+            time = 10;
+        }
     </script>
 }
 <div>
     Nice
 </div>
 <div>
-    <div id="defaultCountdown" class="countdown is-countdown"></div>
+    <div id="timer" ></div>
 </div>
-<button type="button" id="reset">I'm Still Fine</button>
+<button type="button" id="reset" onclick="reset()">I'm Still Fine</button>
