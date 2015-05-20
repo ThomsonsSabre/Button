@@ -1,17 +1,48 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "Sabre";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+@section Styles
+{
+    <link href="~/Styles/jquery.countdown.css" rel="stylesheet" />
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>okGoResponse</title>
-</head>
-<body>
-    <div>
-        Nice
-    </div>
-</body>
-</html>
+@section scripts
+{
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.plugin.js"></script>
+    <script src="~/Scripts/jquery.countdown.js"></script>
+
+    <script>
+        var time = 10;
+        countDown();
+
+        function countDown() {
+            document.getElementById("timer").innerHTML = time;
+            if (time >= 0) {
+                window.setTimeout("countDown()", 1000);
+            } else {
+                document.getElementById("timer").innerHTML = "Are you ok?...";
+                
+                window.setTimeout(function () {
+                    var url = '@Url.Action("/")';
+                    window.location.href = url;
+                }, 1000);
+            }
+
+            time -= 1;
+        }
+
+        function reset() {
+            time = 10;
+        }
+    </script>
+}
+<div>
+    Nice
+</div>
+<div>
+    <div id="timer" ></div>
+</div>
+<button type="button" id="reset" onclick="reset()">I'm Still Fine</button>

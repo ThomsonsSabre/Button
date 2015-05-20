@@ -1,14 +1,14 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Sabre";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="HomePageLogo" >
     <img src="~/Content/Images/logo.jpg" style="height:inherit;" />
 </div>
-
 <h2>Are you alive?</h2>
 
 @using (Html.BeginForm("okGo","Home"))
 {
-    <input type="submit" name="btOkGo" value="I live!" />
+    <input type="submit" name="btOkGo" value="I'm fine" />
 }
