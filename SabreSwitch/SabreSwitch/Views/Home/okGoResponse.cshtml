@@ -1,57 +1,42 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "Sabre";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-&lt;script&gt;
-var dt = '@ViewBag.EndDate';
-var dateAr = dt.split('-');
-var newDate = dateAr[0] + '/' + dateAr[1] + dateAr[2];
-
-var end = new Date(dateAr[0] + '/' + dateAr[1] + '/' + dateAr[2]);
-
-var _sec = 1000;
-var _min = _sec * 60;
-var _hour = _min * 60;
-var _day = _hour * 24;
-var timer;
-
-function showRemaining() {
-    var now = new Date();
-    var distance = end - now;
-    if (distance &lt; 0){
-        clearInterval(timer);
-        document.getElementById('countdown').innerHTML = 'end';
-        window.location.href = '/';
-
-        return;
-    }
-
-    var days = Math.floor(distance/_day);
-    var hours = Math.floor((distance % _day)/hour);
-    var mins = Math.floor((distace % _hour) / _min);
-    var secs = Math.floor((distance % _min) / _sec);
-
-    document.getElementById('countdown').innerHTML = hours + 'hrs ';
-    document.getElementById('countdown').innerHTML += mins + 'mins ';
-    document.getElementById('countdown').innerHTML += secs + 'secs';
+@section Styles
+{
+    <link href="~/Styles/jquery.countdown.css" rel="stylesheet" />
 }
 
-timer = setInterval(showRemaining, 100);
-&lt;/script&gt;
+@section scripts
+{
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.plugin.js"></script>
+    <script src="~/Scripts/jquery.countdown.js"></script>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>okGoResponse</title>
-</head>
-<body>
-    <div>
-        Nice
-    </div>
-    <div>
-        <label id="countdown" />
-    </div>
-</body>
-</html>
+    <script>
+        var now = new Date();
+        console.log("now: " + now);
+        var deadLine = now;
+        console.log("now: " + now + "\ndeadline: " + deadLine);
+        var mins = now.getMinutes();
+        console.log("now: " + now + "\ndeadline: " + deadLine + "\nmins: " + mins);
+        mins = mins + 1;
+        console.log("now: " + now + "\ndeadline: " + deadLine + "\nmins: " + mins);
+        deadLine.setMinutes(mins);
+        console.log("now: " + now + "\ndeadline: " + deadLine + "\nmins: " + mins);
+        $('#defaultCountdown').countdown({ until: new Date(2016, 1, 1), format: 'HMS' });
+        $('#reset').click(function () {
+            now = new Date();
+            mins = now.getMinutes() + 1;
+            deadLine.setMinutes(mins, now.getSeconds, now.getMilliseconds);
+        })
+    </script>
+}
+<div>
+    Nice
+</div>
+<div>
+    <div id="defaultCountdown" class="countdown is-countdown"></div>
+</div>
+<button type="button" id="reset">I'm Still Fine</button>
