@@ -19,6 +19,12 @@ namespace SabreSwitch.Controllers
         [HttpPost]
         public ActionResult okGo(string btOkGo)
         {
+            if (Session["EndDate"] == null)
+            {
+                Session["EndDate"] = DateTime.Now.AddMinutes(1).ToString("dd-MM-yyyy hh:mm:ss tt");
+            }
+            ViewBag.Message = "Countdown";
+            ViewBag.EndDate = Session["EndDate"];
             return View("okGoResponse");            
         }
 
