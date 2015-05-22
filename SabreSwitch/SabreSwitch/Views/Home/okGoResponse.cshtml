@@ -26,7 +26,7 @@
                 document.getElementById("timer").innerHTML = "Are you ok?...";
                 
                 window.setTimeout(function () {
-                    var url = '@Url.Action("/")';
+                    var url = '@Url.Action("/Index")';
                     window.location.href = url;
                 }, 1000);
             }
@@ -36,7 +36,28 @@
 
         function reset() {
             time = 10;
+            Update();
         }
+
+        function Update() {
+            $.ajax({
+                type: 'Get',
+                url: "UpdateDB",
+                success: function (errors) {
+                    if (errors.length == 0) {
+                        //window.location = "/Home/index"
+                    }
+                    else {
+                        $("#Errors").children().remove();
+                        JSONHelper.BurnIn("Errors", errors);
+                        $("#Errors").attr("style", "visbility:visible")
+                        $("html, body").animate({ scrollTop: 0 }, "slow");
+                    }
+                    return false;
+                }
+            });
+            return false;
+        };
     </script>
 }
 <div class="MainPageElement">

@@ -10,18 +10,11 @@ namespace SabreSwitch.Controllers
     public class HomeController : Controller
     {
         private ButtonClickContext db = new ButtonClickContext();
-        //
-        // GET: /Home/
 
         public ActionResult Index()
         {
             return View();
         }
-
-        //public ActionResult okGoResponse()
-        //{
-        //    return View("okGoResponse");
-        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -55,8 +48,6 @@ namespace SabreSwitch.Controllers
                     db.Clicks.Add(buttonClick);
                     db.SaveChanges();
                 }
-
-                //List<ButtonClick> clicksList = db.Clicks.ToList();
             }
         }
 
