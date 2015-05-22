@@ -127,7 +127,12 @@ textarea {
     font-size:xx-large;
     font-weight:bold;
     color:darkred;
-    font-family:'Comic Sans MS';
+    /*font-family:'Comic Sans MS';*/
+}
+
+.message a{
+    font-weight:normal;
+    font-size:medium;
 }
 
 timer{
