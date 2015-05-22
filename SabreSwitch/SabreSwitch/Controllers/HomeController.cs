@@ -51,5 +51,10 @@ namespace SabreSwitch.Controllers
             }
         }
 
+        public ActionResult Games(string btGames)
+        {
+            return View("Games");
+        }
+
     }
 }
