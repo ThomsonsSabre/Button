@@ -10,6 +10,7 @@
 
 @using (Html.BeginForm("okGo", "Home"))
 {
+    @Html.AntiForgeryToken()
     <div class="MainPageElement">
         <input type="submit" name="btOkGo" value="I'm fine" class="button" />
     </div>
